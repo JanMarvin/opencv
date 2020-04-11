@@ -65,6 +65,18 @@ set_num_threads <- function(n = 0L) {
     .Call('_opencv_set_num_threads', PACKAGE = 'opencv', n)
 }
 
+create <- function(len) {
+    .Call('_opencv_create', PACKAGE = 'opencv', len)
+}
+
+magick2opencv <- function(image) {
+    .Call('_opencv_magick2opencv', PACKAGE = 'opencv', image)
+}
+
+opencv2magick <- function(image) {
+    .Call('_opencv_opencv2magick', PACKAGE = 'opencv', image)
+}
+
 cvmat_blur <- function(ptr, ksize) {
     .Call('_opencv_cvmat_blur', PACKAGE = 'opencv', ptr, ksize)
 }

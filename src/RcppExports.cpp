@@ -181,6 +181,39 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// create
+XPtrImage create(int len);
+RcppExport SEXP _opencv_create(SEXP lenSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type len(lenSEXP);
+    rcpp_result_gen = Rcpp::wrap(create(len));
+    return rcpp_result_gen;
+END_RCPP
+}
+// magick2opencv
+XPtrMat magick2opencv(XPtrImage image);
+RcppExport SEXP _opencv_magick2opencv(SEXP imageSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< XPtrImage >::type image(imageSEXP);
+    rcpp_result_gen = Rcpp::wrap(magick2opencv(image));
+    return rcpp_result_gen;
+END_RCPP
+}
+// opencv2magick
+XPtrImage opencv2magick(XPtrMat image);
+RcppExport SEXP _opencv_opencv2magick(SEXP imageSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< XPtrMat >::type image(imageSEXP);
+    rcpp_result_gen = Rcpp::wrap(opencv2magick(image));
+    return rcpp_result_gen;
+END_RCPP
+}
 // cvmat_blur
 XPtrMat cvmat_blur(XPtrMat ptr, size_t ksize);
 RcppExport SEXP _opencv_cvmat_blur(SEXP ptrSEXP, SEXP ksizeSEXP) {
@@ -331,6 +364,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_opencv_livestream", (DL_FUNC) &_opencv_livestream, 1},
     {"_opencv_data_prefix", (DL_FUNC) &_opencv_data_prefix, 0},
     {"_opencv_set_num_threads", (DL_FUNC) &_opencv_set_num_threads, 1},
+    {"_opencv_create", (DL_FUNC) &_opencv_create, 1},
+    {"_opencv_magick2opencv", (DL_FUNC) &_opencv_magick2opencv, 1},
+    {"_opencv_opencv2magick", (DL_FUNC) &_opencv_opencv2magick, 1},
     {"_opencv_cvmat_blur", (DL_FUNC) &_opencv_cvmat_blur, 2},
     {"_opencv_cvmat_sketch", (DL_FUNC) &_opencv_cvmat_sketch, 2},
     {"_opencv_cvmat_stylize", (DL_FUNC) &_opencv_cvmat_stylize, 1},

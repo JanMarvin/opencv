@@ -2,6 +2,7 @@
 
 S3method(print,"opencv-image")
 export("%>%")
+export(convert)
 export(ocv_bitmap)
 export(ocv_blur)
 export(ocv_copyto)
