@@ -11,6 +11,8 @@
 #' @export
 convert <- function(input) {
 
+  require(magick)
+
   z <- NULL
 
   if(inherits(input, "magick-image"))
